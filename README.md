@@ -1,14 +1,16 @@
-Integrantes:
+# PRESUPUESTO
+
+### Integrantes:
 Damián Bottini, Mateo Gonzalez, Nicolás Magno, Ian Ozafrán y Federico Salgado.
 
-Enlace de replit: https://replit.com/@NicolasMAGNO2/PROYECTO2#main.py
+* Enlace de replit: https://replit.com/@NicolasMAGNO2/PROYECTO2#main.py
 
-Introduccion:
+### Introduccion:
 Nuestro proyecto consiste en aplicación web donde se puedan buscar recetas en función de ingredientes clave.
 
 Pythonanywhere: -
 
-Tareas:
+### Tareas:
 
 * Investigacion del contenido.
 * Diseñar el apartado visual de la app web.
@@ -18,10 +20,10 @@ Tareas:
 * Testeo.
 * Puesta en produccion.
 
-Responsabilidades:
+### Responsabilidades:
 
-*Bottini - 3, 5
-*Gonzalez - 1, 6
-*Magno - 4, 7
-*Ozafrán - 2, 4
-*Salgado - 3, 5
+* Bottini - 3, 5
+* Gonzalez - 1, 6
+* Magno - 4, 7
+* Ozafrán - 2, 4
+* Salgado - 3, 5
