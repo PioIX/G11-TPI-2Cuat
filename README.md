@@ -20,8 +20,8 @@ Puesta en produccion.
 
 Responsabilidades:
 
-Bottini - 1, 2, 3, 4, 5, 6, 7
-Gonzalez - 1, 2, 3, 4, 5, 6, 7
-Magno - 1, 2, 3, 4, 5, 6, 7
-Ozafrán - 1, 2, 3, 4, 5, 6, 7
-Salgado - 1, 2, 3, 4, 5, 6, 7
+Bottini - 3, 5
+Gonzalez - 1, 6
+Magno - 4, 7
+Ozafrán - 2, 4
+Salgado - 3, 5
