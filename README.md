@@ -10,13 +10,13 @@ Pythonanywhere: -
 
 Tareas:
 
-*Investigacion del contenido.
-*Diseñar el apartado visual de la app web.
-*Diseñar la Base de Datos.
-*Diseñar el Front-end (HTML, CSS)
-*Desarrollo del Back-end (Python, Js)
-*Testeo.
-*Puesta en produccion.
+* Investigacion del contenido.
+* Diseñar el apartado visual de la app web.
+* Diseñar la Base de Datos.
+* Diseñar el Front-end (HTML, CSS)
+* Desarrollo del Back-end (Python, Js)
+* Testeo.
+* Puesta en produccion.
 
 Responsabilidades:
 
