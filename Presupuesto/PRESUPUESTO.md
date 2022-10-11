@@ -20,4 +20,5 @@
 ![Imagen DER](/Base_de_Datos/DER-base-de-datos.jpg "Imagen DER")
 
 ### Boceto HTML: 
-  
+
+![BocetoHTML](BocetoHTML.pdf)  
