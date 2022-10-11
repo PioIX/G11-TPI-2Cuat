@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{url_for('static', filename = 'styles.css')}}">
+<title>Document</title>
+</head>
+
+{% block navegacion %}
+  <nav>
+    <a href="{{ url_for('login') }}">Iniciar sesión</a>
+    <a href="{{ url_for('ayuda') }}">Ayuda</a>
+    <a href="{{ url_for('nosotros') }}">Nosotros</a>
+    <a href="{{ url_for('politicas') }}">Políticas de privacidad</a>
+  </nav>
+{% endblock %}
+
+<body>
+  {% block titulo %}{% endblock %}
+  {% block contenido %}{% endblock %}
+</body>
+</html>
