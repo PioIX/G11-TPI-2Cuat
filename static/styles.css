@@ -1,8 +1,38 @@
+*{
+  margin:0px;
+}
 nav {
     font-family: 'Arial';
     background-color: #906C5A;
-    border-top: solid 1px #ccc;
-    overflow: hidden;
+    height:120px;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    text-align:center;
+    margin-top:0px;
+    
+}
+
+#cooking{
+  position:absolute;
+  height:120px;
+}
+
+#barra{
+  width:500px;
+  height:30px;
+  border-radius:5px;
+  margin:0px auto;
+  border:0px;
+}
+
+#messi{
+  margin-top:20px;
+}
+
+#navegador{
+  margin:0px auto;
+  padding-top:10px;
 }
 
 nav a {
@@ -12,6 +42,7 @@ nav a {
     font-size: 17px;
     text-decoration: none;
     padding: 10px;
+    
 }
 
 nav a:hover {
@@ -23,6 +54,11 @@ nav a.actual {
     background-color: #ccc;
     font-weight: bold;
     color: black;
+}
+
+img{
+  height: 108px;
+  width:192px;
 }
 
 

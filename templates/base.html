@@ -10,12 +10,19 @@
 
 {% block navegacion %}
 <header>
+  <img src="{{url_for('static', filename='4.png')}} " id="cooking" />
   <nav>
-    <img src="../img/4.png">
-    <a href="{{ url_for('login') }}">Iniciar sesión</a>
-    <a href="{{ url_for('ayuda') }}">Ayuda</a>
-    <a href="{{ url_for('nosotros') }}">Nosotros</a>
-    <a href="{{ url_for('politicas') }}">Políticas de privacidad</a>
+    <div id="messi">
+      <input id="barra"></br>
+    </div>
+    <div id="navegador">
+      <a href="{{ url_for('login') }}">Acceso a Chefs</a>
+      <a href="{{ url_for('ayuda') }}">Ayuda</a>
+      <a href="{{ url_for('nosotros') }}">Nosotros</a>
+      <a href="{{ url_for('politicas') }}">Políticas de privacidad</a>
+    </div>
+    
+  
   </nav>
 </header
 {% endblock %}
