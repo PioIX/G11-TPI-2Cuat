@@ -21,4 +21,4 @@
 
 ### Boceto HTML: 
 
-![BocetoHTML](BocetoHTML.pdf)  
+[BocetoHTML](BocetoHTML.pdf)  
