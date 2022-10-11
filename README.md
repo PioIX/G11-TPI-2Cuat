@@ -12,7 +12,7 @@ Vamos a hacer una app que sirva como buscador de recetas en función de ingredie
 
 ### App de Flask: -
 
-### PRESUPUESTO: [este](PRESUPUESTO.md)
+### PRESUPUESTO: [este](/Presupuesto/PRESUPUESTO.md)
 
 ### Índice:
 * ['Integrantes'](#Integrantes)
