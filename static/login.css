@@ -1,0 +1,50 @@
+*{
+  margin:0px;
+}
+
+body{
+  background-color: #46626F;
+}
+
+img{
+  height: 360px;
+  width:640px;
+  display:block;
+  margin:auto;
+  margin-top:5%;
+}
+
+#casa{
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  margin-top: -4%;
+  margin-left:2%;
+}
+
+.aña{
+  background-color:white;
+  display:block;
+  margin:auto;
+  width: 30%;
+  height:70px;
+  color: black;
+  font-family: 'Fredoka One';
+  font-size: 52px;
+  border-radius:40px;
+  padding:10px
+}
+
+.yo{
+  background-color:#182223;
+  color:white;
+  border-radius:4px;
+  height:60px;
+  width:15%;
+  font-family: 'Fredoka One';
+  display:block;
+  margin:auto;
+  font-size: 40px;
+  border-radius:40px;
+}
+

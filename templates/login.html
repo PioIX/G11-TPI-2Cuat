@@ -5,15 +5,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{url_for('static', filename = 'login.css')}}">
-  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  <title>Acceso a Chefs</title>
 </head>
 <body>
+  <img src="{{url_for('static', filename='casa.png')}} " id="casa" />
+  <img src="{{url_for('static', filename='3.png')}} " id="cooking" />
   <form action="">
-  <label for="name"> Nombre: </label>
-  <input required type="text" id="nombre" name="nombre" /><br
-  <label for="password">Contraseña: </label> 
-  <input required type="password" name= "password" id="password"/><br>
-  <input type="submit" id="send-signup" value="Ingresar" />
+  <input class= aña type="text" id="nombre" name="nombre" placeholder=Usuario required/><br
+  <label for="password" class=pekka></label> 
+  <input class= aña type="password" name= "password" id="password" placeholder=Contraseña required/><br>
+  <input class= yo type="submit" id="send-signup" value="Login" />
   </form>
 </body>
 </html>

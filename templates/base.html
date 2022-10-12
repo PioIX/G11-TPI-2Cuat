@@ -5,12 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type='text/css' href="{{url_for('static', filename = 'styles.css')}}">
-<title>Document</title>
+{% block estilos %}
+{% endblock %}
 </head>
-
+<body>
 {% block navegacion %}
 <header>
-  <img src="{{url_for('static', filename='4.png')}} " id="cooking" />
+  <img src="{{url_for('static', filename='3.png')}} " id="cooking" />
   <nav>
     <div id="messi">
       <input id="barra"></br>
@@ -21,14 +22,14 @@
       <a href="{{ url_for('nosotros') }}">Nosotros</a>
       <a href="{{ url_for('politicas') }}">Políticas de privacidad</a>
     </div>
+
     
   
   </nav>
 </header
 {% endblock %}
-
-<body>
-  {% block titulo %}{% endblock %}
-  {% block contenido %}{% endblock %}
+.
+{% block coso %}
+{% endblock %}
 </body>
 </html>
