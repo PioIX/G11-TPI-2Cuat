@@ -1,12 +1,9 @@
 #conteiner{
-  height:100%;
-  width:100%;
-  position:block;
 }
 
 #box{
   background-color: #46626F;
-  width: 950px;
+  width: 500px;
   height:600px;
   float:left;
   border-radius: 35px;
@@ -14,16 +11,14 @@
 }
 #box2{
   background-color: #46626F;
-  width: 500px; 
+  width: 950px; 
   height: 600px;
   float:right;
   border-radius: 35px;
   margin:2%;
 }
 
-h1{
-  position:absolute;
-}
+
 
 
 

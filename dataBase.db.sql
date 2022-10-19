@@ -1,4 +1,3 @@
-BEGIN TRANSACTION
 CREATE TABLE IF NOT EXISTS'Chefs' (
 	'id_chef'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	'usuario'	TEXT NOT NULL,
@@ -20,15 +19,17 @@ CREATE TABLE IF NOT EXISTS'Ingredientes' (
 	'nombre'	TEXT NOT NULL
   );
 
-CREATE TABLE IF NOT EXISTS'Lista_ingedientes' (
-	FOREIGN KEY('id_ingrediente') REFERENCES 'Ingredientes' ('id_ingredientes'),
-  FOREIGN KEY('id_receta') REFERENCES 'Recetas' ('id_receta')
+CREATE TABLE IF NOT EXISTS 'Lista_ingredientes' (
+	'id_ingrediente'	INTEGER, 
+	'id_receta'	INTEGER, 
+	FOREIGN KEY('id_ingrediente') REFERENCES Ingredientes ('id_ingrediente'),
+  FOREIGN KEY('id_receta') REFERENCES Recetas ('id_receta')
   );
 
-INSERT INTO 'Chefs' VALUES (1, 'admin', '123G11');
-INSERT INTO 'Ingredientes' VALUES (1, 'aceite');
-INSERT INTO 'Ingredientes' VALUES (2, 'papa');
-INSERT INTO 'Recetas' VALUES (1, 'Papas fritas', 'Fritar las papas en el aceite', 'Argentina', 1, 1);
-INSERT INTO 'Lista_ingredientes' VALUES (1, 1);
+-- INSERT INTO 'Chefs' VALUES (1, 'admin', '123G11');
+-- INSERT INTO 'Ingredientes' VALUES (1, 'aceite');
+-- INSERT INTO 'Ingredientes' VALUES (2, 'papa');
+-- INSERT INTO 'Recetas' VALUES (1, 'Papas fritas', 'Fritar las papas en el aceite', 'Argentina', 1, 1);
+-- INSERT INTO 'Lista_ingredientes' VALUES (1, 1);
 COMMIT;
 

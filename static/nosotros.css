@@ -1,5 +1,5 @@
 h1{
-  font-family: 'Fredoka One';
+  font-family: 'Josefin Sans';
   color: black;
   font-size: 50px;
   margin-top: 30px;
@@ -17,13 +17,15 @@ p{
 
 #container{
   background-color: #46626F;
-  width: 80%;
-  height: 200px;
+  width: 85%;
+  height: 250px;
   margin-left: auto;
   margin-right:auto;
   float:center;
   border-radius: 35px;
+  
 }
+
 #eve{
   color: white;
   text-align: center;
@@ -32,5 +34,36 @@ p{
 #uaa{
   color:white;
   font-family: 'Josefin Sans';
-  font-weight:
+}
+
+#ints{
+ 
+  width: 450px ; 
+  height:  250px ;
+  margin-top:50px;
+}
+
+.db{
+  margin-left:-70px;
+}
+
+.magno{
+  margin-left:-210px
+  
+}
+
+.mate{
+  margin-left:-210px
+  
+}
+
+
+.ian{
+  margin-left:-210px
+  
+}
+
+.fede{
+  margin-left:-210px
+  
 }

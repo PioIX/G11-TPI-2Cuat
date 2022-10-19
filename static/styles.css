@@ -13,6 +13,21 @@ nav {
     
 }
 
+#tags{
+ background-color:red;
+  margin-left:10px;
+  height:0px;
+  width:100px;
+  display:block;
+  position:;
+}
+#buscar{
+  width:80px;
+  height:32px;
+  margin-left:10px;
+
+}
+
 #cooking{
   position:absolute;
   height:120px;
@@ -22,17 +37,19 @@ nav {
   width:500px;
   height:30px;
   border-radius:5px;
-  margin:0px auto;
   border:0px;
 }
 
 #messi{
-  margin-top:20px;
+  margin:0px auto;
+  padding-top:25px;
+  display:flex;
+  flex-direccion:wrap;
 }
 
 #navegador{
   margin:0px auto;
-  padding-top:10px;
+  padding-top:0px;
 }
 
 nav a {
@@ -57,8 +74,14 @@ nav a.actual {
 }
 
 img{
-  height: 108px;
+  height:108px;
   width:192px;
+}
+
+@media screen and (max-width:800px){
+  body){
+    background-color:aquamarine
+}
 }
 
 

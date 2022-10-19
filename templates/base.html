@@ -10,10 +10,11 @@
 {% block navegacion %}
 <div id="cooking"><a href="/"><img src="static/img/3.png"></div></a>
 <header>
-  
   <nav>
     <div id="messi">
       <input id="barra"></br>
+      <button id="buscar" onclick="Busqueda()">Buscar</button>
+      <div id="tags"></div>
     </div>
     <div id="navegador">
       <a href="{{ url_for('login') }}">Acceso a Chefs</a>
@@ -21,6 +22,7 @@
       <a href="{{ url_for('nosotros') }}">Nosotros</a>
       <a href="{{ url_for('politicas') }}">Políticas de privacidad</a>
     </div>
+    
 
     
   
@@ -37,5 +39,6 @@
 {% block estilos %}
 {% endblock %}
 
+<script <script src="{{url_for('static',filename='indexBack.js')}}"></script></script>
 </body>
 </html>
