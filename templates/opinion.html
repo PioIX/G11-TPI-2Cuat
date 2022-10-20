@@ -1,3 +1,12 @@
 {% extends 'base.html' %}
 
-<div id="container"></div>
+{% block estilos %}
+<link rel="stylesheet" type='text/css' href="{{url_for('static', filename = 'opinion.css')}}">
+{% endblock %}
+
+{% block coso %}
+<div id="container">
+<h1 id=opi>Danos tu opinión</h1>
+<p id=chau>Del 1 al 10. ¿Qué te ha parecido nuesta aplicación? Gracias, Buenas mañanas, tardes o noches. EVE, que la pases lindo, hasta luego o hasta mañana o hasta pronto. Chau, me despido</p>
+</div>
+{% endblock %}

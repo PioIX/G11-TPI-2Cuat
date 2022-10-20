@@ -1,0 +1,23 @@
+#container{
+  background-color: #46626F;
+  width: 95%;
+  height: 600px;
+  margin-left: auto;
+  margin-right:auto;
+  float:center;
+  border-radius: 35px;
+  margin-top: 30px;
+}
+
+#opi{
+  color: white;
+  font-family: 'Arial';
+  margin: 2%;
+}
+
+#chau{
+  color:white;
+  margin-left:2%;
+  font-family: 'Arial';
+  
+}

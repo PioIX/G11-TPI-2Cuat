@@ -21,6 +21,10 @@ nav {
   color: white;
 }
 
+.but hover{
+  background-color:#404a4f;
+}
+
 #tags{
   width:26.8%;
   position:absolute;

@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block coso %}
-<div id="conteiner">
+<div id="container">
   <div id="box"></div>
   <div id="box2"></div>
 </div>
@@ -13,7 +13,15 @@
 <script src="{{url_for('static',filename='indexBack.js')}}"></script>
 {% endblock %}
   
+{% if oculto %}
 
+<div id="container">
+  <div id="box"></div>
+  <div id="box2"></div>
+</div>
+
+
+{% endif %}
 
   
 

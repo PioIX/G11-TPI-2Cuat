@@ -30,22 +30,24 @@ def opinion():
 @app.route('/loginChef', methods = ['GET', 'POST'])
 def loginChef():
     if (request.method == 'POST'):
-      if (request.method['nombre'] != []):
+      if (request.form['nombre'] != ""):
         conn = sqlite3.connect('dataBase.db')
         nombre = request.form['nombre']
         contra = request.form['password']
         
-        q = f"""SELECT usuario FROM Chef WHERE nombre = {nombre} and password = '{contra}' ;"""  
+        q = f"""SELECT usuario FROM Chefs WHERE usuario = '{nombre}' and contra = '{contra}' ;"""  
         resu = conn.execute(q)
 
         if resu.fetchone():
           conn.commit()
           conn.close()
-          return redirect('/index')
+          return redirect('/')
         else:
           conn.commit()
           conn.close()
-          return render_template('/index.html', error = True)
+          return render_template('/index.html', mostrar = False)
+      else:
+        redirect('/index')
 
 @app.route('/ingresarReceta', methods = ['POST'])
 def ingresarReceta():

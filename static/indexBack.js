@@ -6,12 +6,14 @@ function Busqueda(){
   if(id < 6){
       if(tags.length >= 2){
       document.getElementById("barra").value = "";
+        x = id
+        console.log(id)
       document.getElementById("tags").innerHTML += `
-     <button value='${tags}' class="but" id=${id} onlclick='borrarTag(${id})'>${tags} ✖️</button>
+     <button type='button' value='${tags}' class="but" id=${id} onclick='borrarTag("${x}" )'>${tags} ✖️</button>
     `
       console.log(tags)
     }else{
-      console.log("debe tener almenos 2 letras")
+      console.log("debe tener al menos 2 letras")
       document.getElementById("barra").value = "";
       id = id - 1
     }
@@ -26,8 +28,7 @@ function Busqueda(){
 }
 
 function borrarTag(id){
-  document.getElementBy(id).remove()
-  
+  document.getElementById(id).remove()
 }
 
                                                                                                                             
