@@ -13,21 +13,25 @@ nav {
     
 }
 
+.but{
+  background-color:#738f9c;
+  margin-top:5px;
+  border-radius:4px;
+  border: none;
+  color: white;
+}
+
 #tags{
-  background-color:red;
-  height:100px;
   width:26.8%;
   position:absolute;
-  height:120px;
+  height:100px;
+  margin-top:10px;
   left:73.2%;
-  
-  
 }
 #buscar{
   width:80px;
   height:32px;
   margin-left:10px;
-
 }
 
 #cooking{
@@ -79,12 +83,6 @@ nav a.actual {
 img{
   height:108px;
   width:192px;
-}
-
-@media screen and (max-width:800px){
-  body){
-    background-color:aquamarine
-}
 }
 
 
