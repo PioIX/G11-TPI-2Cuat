@@ -20,9 +20,9 @@ def ayuda():
 def nosotros():
   return render_template('nosotros.html')
 
-@app.route('/politicas')
-def politicas():
-  return render_template('politicas.html')
+@app.route('/opinion')
+def opinion():
+  return render_template('opinion.html')
 
 @app.route('/loginChef', methods = ['GET', 'POST'])
 def loginChef():

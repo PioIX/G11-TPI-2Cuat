@@ -9,24 +9,21 @@
 <body>
 {% block navegacion %}
 <div id="cooking"><a href="/"><img src="static/img/3.png"></div></a>
+<div id="tags"></div>
 <header>
   <nav>
     <div id="messi">
       <input id="barra"></br>
       <button id="buscar" onclick="Busqueda()">Buscar</button>
-      <div id="tags"></div>
     </div>
     <div id="navegador">
       <a href="{{ url_for('login') }}">Acceso a Chefs</a>
       <a href="{{ url_for('ayuda') }}">Ayuda</a>
       <a href="{{ url_for('nosotros') }}">Nosotros</a>
-      <a href="{{ url_for('politicas') }}">Políticas de privacidad</a>
+      <a href="{{ url_for('opinion') }}">Danos tu opinión</a>
     </div>
-    
-
-    
-  
   </nav>
+  
 </header
 {% endblock %}
 
