@@ -2,11 +2,17 @@
 
 {% block estilos %}
 <link rel="stylesheet" type='text/css' href="{{url_for('static', filename = 'opinion.css')}}">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block coso %}
 <div id="container">
-<h1 id=opi>Danos tu opinión</h1>
-<p id=chau>Del 1 al 10. ¿Qué te ha parecido nuesta aplicación? Gracias, Buenas mañanas, tardes o noches. EVE, que la pases lindo, hasta luego o hasta mañana o hasta pronto. Chau, me despido</p>
+<H1 id=opi>¿Qué te pareció nuestra app?</H1>
+<form>
+        <input  class=pekka type="text" id="name" name="input1" placeholder=Usuario><br>
+        <input class=aña type="text" id="text" placeholder=Opinión><br>
+        <input class=enviar type="submit" id="send-signup" value="Enviar" />
+</form>
 </div>
+
 {% endblock %}
