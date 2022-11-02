@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask, render_template,request,session, redirect
+from flask import Flask, render_template,request,session, redirect,jsonify
 
 app = Flask(__name__)
 app.secret_key = 'farandula'
@@ -9,12 +9,55 @@ app.secret_key = 'farandula'
 def index():
     return render_template('index.html')
 
-@app.route('/comparar')
+@app.route('/indexChef')
+def indexChef():
+    return render_template('indexChef.html')
+
+@app.route('/comparar', methods = ['POST'])
 def comparacion():
-  if request.method == "POST":
+  if (request.method == "POST"):
     busqueda = request.form["tags"]
-  
-  return
+    print(busqueda)
+    busqueda = busqueda.lower()
+    print(busqueda)
+    conn = sqlite3.connect('dataBase.db')
+    cur = f"""SELECT id_ingrediente FROM Ingredientes  WHERE nombre == '{busqueda}';"""
+                  
+    resultado = conn.execute(cur)
+    dato = resultado.fetchone()
+    print(dato[0])
+
+    resu = f""" SELECT Lista_ingredientes.id_receta FROM Lista_ingredientes INNER JOIN Ingredientes ON Lista_ingredientes.id_ingrediente = Ingredientes.id_ingrediente WHERE Ingredientes.id_ingrediente = {dato[0]};"""
+    
+    rese = conn.execute(resu)
+    rese = rese.fetchall()
+    print(rese)
+    lista = []
+    i=0
+    if(len(rese) >= 2):
+        for i in range(len(rese)):
+          messi = f""" SELECT nombre FROM Recetas WHERE id_receta == {rese[i]};"""
+          mesi = conn.execute(messi)
+          mesi = mesi.fetchone()
+          lista.append(mesi)
+          print(mesi)
+          print("la lista es: ", lista)
+          i = i +1
+        
+        
+        print("la lista es: ", lista)
+        conn.close()
+        return jsonify(lista) 
+      
+    else:
+      print(rese[0][0])
+      messi = f""" SELECT nombre FROM Recetas WHERE id_receta == {rese[0][0]};"""
+      mesi = conn.execute(messi)
+      mesi = mesi.fetchone()
+      print(mesi)
+
+      conn.close()
+      return jsonify(mesi) 
 
 @app.route('/login')
 def login():
@@ -48,7 +91,7 @@ def loginChef():
         if resu.fetchone():
           conn.commit()
           conn.close()
-          return redirect('/')      # preguntar como seria un reedirect con una variable incluida (algo como lo de abajo)
+          return redirect('/indexChef')      # preguntar como seria un reedirect con una variable incluida (algo como lo de abajo)
         else:
           conn.commit()
           conn.close()

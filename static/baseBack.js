@@ -33,7 +33,7 @@ function borrarTag(id){
   document.getElementById(id).remove()
   document.getElementById(id).remove() 
 }
-
+/*
 $(function()
 	{
 		var mySelectCheckbox = new checkbox_select(
@@ -51,6 +51,6 @@ $(function()
 		});
   
 	});
-		
+*/
 
                                                                           

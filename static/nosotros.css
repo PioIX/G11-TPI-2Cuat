@@ -1,5 +1,5 @@
 h1{
-  font-family: 'Josefin Sans';
+  font-family: 'Fredoka One';
   color: black;
   font-size: 50px;
   margin-top: 30px;
@@ -17,8 +17,8 @@ p{
 
 #container{
   background-color: #46626F;
-  width: 85%;
-  height: 250px;
+  width: 70%;
+  height: 500px;
   margin-left: auto;
   margin-right:auto;
   float:center;
@@ -34,36 +34,4 @@ p{
 #uaa{
   color:white;
   font-family: 'Josefin Sans';
-}
-
-#ints{
- 
-  width: 450px ; 
-  height:  250px ;
-  margin-top:50px;
-}
-
-.db{
-  margin-left:-70px;
-}
-
-.magno{
-  margin-left:-210px
-  
-}
-
-.mate{
-  margin-left:-210px
-  
-}
-
-
-.ian{
-  margin-left:-210px
-  
-}
-
-.fede{
-  margin-left:-210px
-  
 }

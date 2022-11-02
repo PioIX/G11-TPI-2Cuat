@@ -2,7 +2,7 @@
 }
 
 #box{
-  background-color: #46626F;
+  background-color: #000000;
   width: 30%;
   height:600px;
   float:left;
@@ -10,7 +10,7 @@
   margin:2%;
 }
 #box2{
-  background-color: #46626F;
+  background-color: #000000;
   width: 60%; 
   height: 600px;
   float:right;
@@ -51,24 +51,3 @@
 #checkboxes label:hover {
   background-color: #1e90ff;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

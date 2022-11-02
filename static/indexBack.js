@@ -1,17 +1,19 @@
 function recopilarInfo(tags,id){
   console.log(tags)
-  document.getElementById("box").innerHTML += `
-  <h1 id=${id}>${tags}</h1>
-  `
+  compararBusqueda(tags,id)
 }
 
-function compararBusqueda(tags) {
+function compararBusqueda(tags,id) {
   $.ajax({
-    url:"...",
+    url:"/comparar",
     type:"POST",
     data:{"tags":tags},
     success:function(response){
-      datos = JSON.parse(response);
+      datos =  response;
+      console.log(datos)
+      document.getElementById("box").innerHTML += `
+  <h1 id=${id}>${datos}</h1>
+  `
     },
     error:function(error){
       console.log(error);

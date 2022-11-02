@@ -1,0 +1,91 @@
+*{
+  margin:0px;
+}
+nav {
+    font-family: 'Arial';
+    background-color: #000000;
+    height:120px;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    
+}
+
+.but{
+  background-color:#738f9c;
+  margin-top:5px;
+  border-radius:4px;
+  border: none;
+  color: white;
+}
+
+.but hover{
+  background-color:#000000;
+}
+
+#tags{
+  width:26.8%;
+  position:absolute;
+  height:100px;
+  margin-top:10px;
+  left:73.2%;
+}
+#buscar{
+  width:80px;
+  height:32px;
+  margin-left:10px;
+}
+
+#cooking{
+  position:absolute;
+  height:120px;
+  margin-top: 5px;
+}
+
+#barra{
+  width:500px;
+  height:30px;
+  border-radius:5px;
+  border:0px;
+}
+
+#messi{
+  margin:0px auto;
+  
+  
+  display:flex;
+  flex-direccion:wrap;
+}
+
+#navegador{
+  margin:0px auto;
+  padding-top:0px;
+}
+
+nav a {
+    float: left;
+    color: lightcyan;
+    text-align: center;
+    font-size: 17px;
+    text-decoration: none;
+    padding: 10px;
+    
+}
+
+nav a:hover {
+    background-color: #ccc;
+    color: black;
+}
+
+nav a.actual {
+    background-color: #ccc;
+    font-weight: bold;
+    color: black;
+}
+
+img{
+  height:108px;
+  width:192px;
+}
