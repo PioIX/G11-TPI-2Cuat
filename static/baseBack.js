@@ -13,7 +13,7 @@ function Busqueda(){
       document.getElementById("tags").innerHTML += `
      <button type='button' value='${tags}' class="but" id=${id} onclick='borrarTag("${x}" )'>${tags} ✖️</button>
     `
-      recopilarInfo(tags,x)
+      compararBusqueda(tags,x)
     }else{
       console.log("debe tener al menos 2 letras")
       document.getElementById("barra").value = "";
@@ -31,26 +31,12 @@ function Busqueda(){
 
 function borrarTag(id){
   document.getElementById(id).remove()
-  document.getElementById(id).remove() 
-}
-/*
-$(function()
-	{
-		var mySelectCheckbox = new checkbox_select(
-		{
-			selector : "#make_checkbox_select",
-            selected_translation : "selectat",
-            all_translation : "Toate marcile",
-            not_found : "Nici unul gasit",
-
-			// Event during initialization
-			onApply : function(e)
-			{
-                alert("Custom Event: " + e.selected);
-			}
-		});
+  let vector = document.getElementsByName(id)
+  while (vector.length > 0) {
+    vector[0].remove()
+  }
   
-	});
-*/
+}
+
 
                                                                           

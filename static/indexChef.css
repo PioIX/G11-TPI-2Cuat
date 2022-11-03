@@ -3,17 +3,9 @@
 
 #box{
   background-color: #000000;
-  width: 30%;
+  width: 96%;
   height:600px;
   float:left;
-  border-radius: 35px;
-  margin:2%;
-}
-#box2{
-  background-color: #000000;
-  width: 60%; 
-  height: 600px;
-  float:right;
   border-radius: 35px;
   margin:2%;
 }

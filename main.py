@@ -13,6 +13,18 @@ def index():
 def indexChef():
     return render_template('indexChef.html')
 
+@app.route('/modificar')
+def modificar():
+    return render_template('modificar.html')
+
+@app.route('/crear')
+def crear():
+    return render_template('crear.html')
+
+@app.route('/eliminar')
+def eliminar():
+    return render_template('eliminar.html')
+
 @app.route('/comparar', methods = ['POST'])
 def comparacion():
   if (request.method == "POST"):
@@ -36,7 +48,8 @@ def comparacion():
     i=0
     if(len(rese) >= 2):
         for i in range(len(rese)):
-          messi = f""" SELECT nombre FROM Recetas WHERE id_receta == {rese[i]};"""
+          print("rese[i]: ", rese[i][0])
+          messi = f""" SELECT nombre FROM Recetas WHERE id_receta == {rese[i][0]};"""
           mesi = conn.execute(messi)
           mesi = mesi.fetchone()
           lista.append(mesi)

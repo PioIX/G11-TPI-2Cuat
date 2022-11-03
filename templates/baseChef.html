@@ -8,19 +8,20 @@
 </head>
 <body>
 {% block navegacion %}
-<div id="cooking"><a href="/"><img src="static/img/chef.png"></div></a>
+<div id="cooking"><a href="/indexChef"><img src="static/img/chef.png"></div></a>
 <div id="tags"></div>
 <header>
   <nav>
     <div id="navegador">
-      <a href="{{ url_for('login') }}">Crear</a>
-      <a href="{{ url_for('ayuda') }}">Modificar</a>
-      <a href="{{ url_for('nosotros') }}">Eliminar</a>
+      <a href="{{ url_for('crear') }}">Crear</a>
+      <a href="{{ url_for('modificar') }}">Modificar</a>
+      <a href="{{ url_for('eliminar') }}">Eliminar</a>
+      <a href="{{ url_for('eliminar') }}">Modo bot</a>
+     
       
     
     </div>
   </nav>
-  
 </header>
 {% endblock %}
 
