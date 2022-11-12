@@ -1,3 +1,4 @@
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
 
 id=0
 
@@ -38,5 +39,29 @@ function borrarTag(id){
   
 }
 
+function cargarOptions(){
+  opciones = []
+  document.getElementById("barra").value = ""
+  $.ajax({
+    url:"/options",
+    type:"GET",
+    success:function(response){
+      datos =  response;
+      console.log(datos)
+      for(i=0;i<=datos.length ;i++){
+        document.getElementById("barra").innerHTML += `
+        <option value="${datos[i][0]}">${datos[i][0]}</option>
+        `
+      }
+      
+    },
+  error:function(error){
+      console.log(error);
+    },
+  }); 
+} 
+  
 
+
+cargarOptions()
                                                                           

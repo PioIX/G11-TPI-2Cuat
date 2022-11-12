@@ -1,5 +1,9 @@
+body{
+  background-image: url(./img/icons.png);
+}
+
 h1{
-  font-family: 'Josefin Sans';
+  font-family: 'Fredoka One';
   color: black;
   font-size: 50px;
   margin-top: 30px;
@@ -7,8 +11,8 @@ h1{
 }
 
 p{
-  font-family: 'Fredoka One';
-  color: black;
+  font-family: 'Arial';
+  color: white;
   font-size: 30px;
   margin-top: 10px;
   margin-left: 10px;
@@ -17,14 +21,15 @@ p{
 
 #container{
   background-color: #46626F;
-  width: 85%;
-  height: 250px;
+  width: 70%;
+  height: 500px;
   margin-left: auto;
   margin-right:auto;
   float:center;
   border-radius: 35px;
-  
 }
+
+
 
 #eve{
   color: white;
@@ -33,5 +38,18 @@ p{
 
 #uaa{
   color:white;
-  font-family: 'Josefin Sans';
+  font-family: 'Arial';
+  font-size:25px;
+  text-align:justify;
+  margin:10px;
+  
+}
+
+#ua{
+  color:yellow;
+  font-family: 'Arial';
+  font-size:25px;
+  text-align:justify;
+  margin:10px;
+  
 }

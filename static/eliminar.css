@@ -1,7 +1,11 @@
+body{
+  background-image: url(./img/fondo.jpg);
+}
+
 h1{
-  font-family: 'Josefin Sans';
+  font-family: 'Fredoka One';
   color: black;
-  font-size: 50px;
+  font-size: 70px;
   margin-top: 30px;
   margin-left: 10px;
 }
@@ -17,13 +21,12 @@ p{
 
 #container{
   background-color: #000000;
-  width: 85%;
-  height: 250px;
+  width: 95%;
+  height: 625px;
   margin-left: auto;
   margin-right:auto;
   float:center;
   border-radius: 35px;
-  
 }
 
 #eve{
@@ -31,7 +34,30 @@ p{
   text-align: center;
 }
 
-#uaa{
+#eliminar{
+  background-color:white;
+  display:block;
+  margin:auto;
+  width: 20%;
+  height:20px;
+  font-family: 'Fredoka One';
+  font-size: 40px;
+  padding:10px;
+  text-align:center;
+}
+
+.enviar{
+  margin-left:auto;
+  margin-right:auto;
+  background-color:#e41111;
   color:white;
-  font-family: 'Josefin Sans';
+  border-radius:4px;
+  height:90px;
+  width:30%;
+  font-family: 'Fredoka One';
+  display:block;
+  margin:auto;
+  font-size: 40px;
+  border-radius:40px;
+  margin-top: 2%;
 }

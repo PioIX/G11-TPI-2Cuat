@@ -25,52 +25,69 @@ def crear():
 def eliminar():
     return render_template('eliminar.html')
 
+@app.route('/options')
+def cargarOptions():
+  if(request.method == "GET"):
+    #opciones = request.form["opciones"]
+    conn = sqlite3.connect('dataBase.db')
+    cur = f""" SELECT nombre FROM Ingredientes;"""
+    resultado = conn.execute(cur)
+    print("resultado: ",resultado)
+    opciones = resultado.fetchall()
+    print("opciones: ", opciones)
+    return jsonify(opciones)
+    
 @app.route('/comparar', methods = ['POST'])
 def comparacion():
   if (request.method == "POST"):
     busqueda = request.form["tags"]
+    conteo = request.form["conteo"]
+    print("conteo es:",conteo)
     print(busqueda)
     busqueda = busqueda.lower()
     print(busqueda)
-    conn = sqlite3.connect('dataBase.db')
-    cur = f"""SELECT id_ingrediente FROM Ingredientes  WHERE nombre == '{busqueda}';"""
-                  
-    resultado = conn.execute(cur)
-    dato = resultado.fetchone()
-    print(dato[0])
-
-    resu = f""" SELECT Lista_ingredientes.id_receta FROM Lista_ingredientes INNER JOIN Ingredientes ON Lista_ingredientes.id_ingrediente = Ingredientes.id_ingrediente WHERE Ingredientes.id_ingrediente = {dato[0]};"""
-    
-    rese = conn.execute(resu)
-    rese = rese.fetchall()
-    print(rese)
-    lista = []
-    i=0
-    if(len(rese) >= 2):
-        for i in range(len(rese)):
-          print("rese[i]: ", rese[i][0])
-          messi = f""" SELECT nombre FROM Recetas WHERE id_receta == {rese[i][0]};"""
-          mesi = conn.execute(messi)
-          mesi = mesi.fetchone()
-          lista.append(mesi)
-          print(mesi)
-          print("la lista es: ", lista)
-          i = i +1
-        
-        
-        print("la lista es: ", lista)
-        conn.close()
-        return jsonify(lista) 
-      
+    if int(conteo) >= 1:
+      pass
     else:
-      print(rese[0][0])
-      messi = f""" SELECT nombre FROM Recetas WHERE id_receta == {rese[0][0]};"""
-      mesi = conn.execute(messi)
-      mesi = mesi.fetchone()
-      print(mesi)
-
-      conn.close()
-      return jsonify(mesi) 
+      conn = sqlite3.connect('dataBase.db')
+      cur = f"""SELECT id_ingrediente FROM Ingredientes  WHERE nombre == '{busqueda}';"""
+                    
+      resultado = conn.execute(cur)
+      dato = resultado.fetchone()
+      print(dato[0])
+  
+      resu = f""" SELECT Lista_ingredientes.id_receta FROM Lista_ingredientes INNER JOIN Ingredientes ON Lista_ingredientes.id_ingrediente = Ingredientes.id_ingrediente WHERE Ingredientes.id_ingrediente = {dato[0]};"""
+      
+      rese = conn.execute(resu)
+      rese = rese.fetchall()
+      print(rese)
+      lista = []
+      i=0
+      if(len(rese) >= 2):
+          for i in range(len(rese)):
+            print("rese[i]: ", rese[i][0])
+            messi = f""" SELECT nombre FROM Recetas WHERE id_receta == {rese[i][0]};"""
+            mesi = conn.execute(messi)
+            mesi = mesi.fetchone()
+            lista.append(mesi)
+            print(mesi)
+            print("la lista es: ", lista)
+            i = i +1
+          
+          
+          print("la lista es: ", lista)
+          conn.close()
+          return jsonify(lista) 
+        
+      else:
+        print(rese[0][0])
+        messi = f""" SELECT nombre FROM Recetas WHERE id_receta == {rese[0][0]};"""
+        mesi = conn.execute(messi)
+        mesi = mesi.fetchone()
+        print(mesi)
+  
+        conn.close()
+        return jsonify(mesi) 
 
 @app.route('/login')
 def login():
@@ -104,7 +121,8 @@ def loginChef():
         if resu.fetchone():
           conn.commit()
           conn.close()
-          return redirect('/indexChef')      # preguntar como seria un reedirect con una variable incluida (algo como lo de abajo)
+          return redirect('/indexChef') 
+          # preguntar como seria un reedirect con una variable incluida (algo como lo de abajo)
         else:
           conn.commit()
           conn.close()
@@ -112,8 +130,13 @@ def loginChef():
       else:
         redirect('/index')
 
+
+
+
 @app.route('/ingresarReceta', methods = ['POST'])
 def ingresarReceta():
+
+  
   if (request.method['recetaNombre'] != ''):
     conn = sqlite3.connect('dataBase.db')
     recetaNombre = request.form['recetaNombre']
@@ -127,25 +150,55 @@ def ingresarReceta():
     conn.commit()
     conn.close()
      
-@app.route('/buscarReceta', methods = ['GET', 'POST'])      # busca el nombre
-def buscarReceta():    
-  conn = sqlite3.connect('dataBase')
-  buscada = request.form['buscada']
 
-  q = f"""SELECT Recetas.nombre FROM Recetas INNER JOIN Chefs ON Recetas.id_chef = Chefs.id_chef WHERE Recetas.nombre LIKE {buscada};"""      # chequear que esto funcione
-
-  consulta = conn.execute(q)
-
-  if (consulta == ""):    # arreglar condicion (si "q" no resulta ver lo que devuelve, ¿NULL, 0?)
-    pass
-
-# hay que hacer que 
-    
-#para la siguiente hay que hacer que se pasen los datos de la receta seleccionada entre el apartado de los filtros y la vista de la receta
     
 
-@app.route('/visualizarReceta', methods = ['POST'])
-def visualizarReceta():
-  return ('null')
+@app.route('/visualizarRecetas', methods = ['POST'])
+def visualizarRecetas():
+  conn = sqlite3.connect('dataBase.db')
+  q = """SELECT nombre FROM Recetas;"""
+  conn.execute(q)
+  print(q)
+
+
+def checkearSiExiste(unNombre):  # es para los ingedientes
+    conn = sqlite3.connect('dataBase.db')
+    cur = conn.cursor()
+    cur.execute(f"""SELECT nombre FROM Jugadores WHERE nombre = '{unNombre}';""")
+    resu = cur.fetchall()
+    conn.commit()
+    conn.close()
+    if resu != []:
+      return True
+
+@app.route('/nIngrediente', methods = ['GET', 'POST'])    # crear el formulario - cumplir con el argumento 'nombre'
+def nIngediente():
+  if (request.method == 'POST'):
+    nombre = request.form['nombre']
+    if (checkearSiExiste(nombre) == False):
+      nombre = request.form['nombre']
+      conn = sqlite3.connect('dataBase.db')
+      q = f"""INSERT INTO Ingredientes(nombre)
+    VALUES({nombre};"""
+      conn.execute(q)
+      conn.commit()
+      conn.close()
+      print('ejecutado, ', nombre)
+
+# @app.route('/buscarReceta', methods = ['GET', 'POST'])      # busca el nombre
+# def buscarReceta():    
+#   conn = sqlite3.connect('dataBase')
+#   buscada = request.form['buscada']
+
+#   q = f"""SELECT Recetas.nombre FROM Recetas INNER JOIN Chefs ON Recetas.id_chef = Chefs.id_chef WHERE Recetas.nombre LIKE {buscada};"""      # chequear que esto funcione
+
+#   consulta = conn.execute(q)
+
+#   if (consulta == ""):    # arreglar condicion (si "q" no resulta ver lo que devuelve, ¿NULL, 0?)
+#     pass
+
+# # hay que hacer que 
+    
+# #para la siguiente hay que hacer que se pasen los datos de la receta seleccionada entre el apartado de los filtros y la vista de la receta
 
 app.run(host='0.0.0.0', port=81)

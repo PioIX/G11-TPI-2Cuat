@@ -1,3 +1,7 @@
+body{
+  background-image: url(./img/icons.png);
+}
+
 #container{
   background-color: #46626F;
   width: 70%;
@@ -6,7 +10,6 @@
   margin-right:auto;
   float:center;
   border-radius: 35px;
-  margin-top: 2%;
 }
 
 #opi{

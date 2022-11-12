@@ -1,11 +1,11 @@
-CREATE TABLE IF NOT EXISTS'Chefs' (
+que CREATE TABLE IF NOT EXISTS'Chefs' (
 	'id_chef'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	'usuario'	TEXT NOT NULL,
 	'contra'	TEXT NOT NULL
   );
 
-CREATE TABLE IF NOT EXISTS'Recetas' (
-	'id_receta'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+CREATE TABLE IF NOT EXISTS'Recetas' ( -- agregar forma de relacion con los ingredientes
+	'id_receta'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
 	'nombre'	TEXT NOT NULL,
 	'descripcion'	TEXT NOT NULL,
 	'pais_origen'	TEXT,

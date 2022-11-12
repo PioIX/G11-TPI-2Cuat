@@ -36,7 +36,15 @@ nav {
   width:80px;
   height:32px;
   margin-left:10px;
+
+  background-color:#182223;
+  color:white;
+  font-family: 'Fredoka One';
+  border: #182223;
+  border-radius:40px;
+  font-size:17px;
 }
+
 
 #cooking{
   position:absolute;
@@ -70,7 +78,6 @@ nav a {
     font-size: 17px;
     text-decoration: none;
     padding: 10px;
-    
 }
 
 nav a:hover {

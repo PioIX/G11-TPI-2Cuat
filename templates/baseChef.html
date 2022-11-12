@@ -5,6 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type='text/css' href="{{url_for('static', filename = 'stylesChef.css')}}">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
 </head>
 <body>
 {% block navegacion %}
@@ -16,7 +17,7 @@
       <a href="{{ url_for('crear') }}">Crear</a>
       <a href="{{ url_for('modificar') }}">Modificar</a>
       <a href="{{ url_for('eliminar') }}">Eliminar</a>
-      <a href="{{ url_for('eliminar') }}">Modo bot</a>
+      <div style="padding:0px" id="salir"><a href="/"><img style="padding:0px" src="static/img/casa.png" id=casa></a></div>
      
       
     
