@@ -25,3 +25,5 @@
 ### Boceto HTML: 
 
 [BocetoHTML](BocetoHTML.pdf)  
+
+### Usuario y contraseña: admin 123G11

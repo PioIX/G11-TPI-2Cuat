@@ -18,4 +18,7 @@ Vamos a hacer una app que sirva como buscador de recetas en función de ingredie
 * ['Integrantes'](#Integrantes)
 
 
-#### 
+#### otras cosas:
+
+  * [Using Google App Password to Send Emails in Development with Flask](https://nickjanetakis.com/blog/using-a-google-app-password-to-send-emails-in-development-with-flask)
+  * https://nickjanetakis.com/blog/using-a-google-app-password-to-send-emails-in-development-with-flask

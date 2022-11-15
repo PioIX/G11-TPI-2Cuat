@@ -40,7 +40,7 @@ img{
   padding:10px
 }
 
-::placeholder { color: #000000; }
+::placeholder { color: #acb5b9; }
 
 .yo{
   background-color:#182223;
@@ -64,5 +64,5 @@ p{
 }
 
 #lol{
-  color:yellow;
+  color:#e6e67a;
 }

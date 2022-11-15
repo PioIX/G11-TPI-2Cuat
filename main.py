@@ -28,66 +28,116 @@ def eliminar():
 @app.route('/options')
 def cargarOptions():
   if(request.method == "GET"):
-    #opciones = request.form["opciones"]
+    
     conn = sqlite3.connect('dataBase.db')
     cur = f""" SELECT nombre FROM Ingredientes;"""
     resultado = conn.execute(cur)
-    print("resultado: ",resultado)
     opciones = resultado.fetchall()
-    print("opciones: ", opciones)
     return jsonify(opciones)
-    
+
+
+
+
+
 @app.route('/comparar', methods = ['POST'])
 def comparacion():
   if (request.method == "POST"):
+
+    #obtengo informacion
     busqueda = request.form["tags"]
+    print(busqueda)
     conteo = request.form["conteo"]
-    print("conteo es:",conteo)
-    print(busqueda)
     busqueda = busqueda.lower()
-    print(busqueda)
-    if int(conteo) >= 1:
-      pass
+    print(conteo)
+
+    #me fijo si hay ya recetas mostradas
+    if (int(conteo) >= 1):
+
+      #busco en la base de datos las recetas que tengan el ingrediente
+      yaExisten = request.form["yaExisten"]
+      conn = sqlite3.connect('dataBase.db')
+      cur = f"""SELECT id_ingrediente FROM Ingredientes      WHERE nombre == '{busqueda}';"""
+                    
+      resultado = conn.execute(cur)
+      dato = resultado.fetchone()
+  
+      resu = f""" SELECT Lista_ingredientes.id_receta FROM Lista_ingredientes INNER JOIN Ingredientes ON Lista_ingredientes.id_ingrediente = Ingredientes.id_ingrediente WHERE Ingredientes.id_ingrediente = {dato[0]};"""
+      
+      rese = conn.execute(resu)
+      rese = rese.fetchall()
+      lista = []
+      i=0
+
+      
+      if(len(rese) >= 2):
+
+        
+          for i in range(len(rese)):
+            messi = f""" SELECT nombre FROM Recetas WHERE id_receta == {rese[i][0]};"""
+            mesi = conn.execute(messi)
+            mesi = mesi.fetchone()
+            lista.append(mesi)
+            i = i +1
+          
+          conn.close()
+        
+          for i in range(len(lista)):
+
+            #me fijo si las recetas ya estan mostradas en la pagina
+            if(lista[i] in yaExisten):
+              
+              lista.remove(lista[i])
+              i = i +1
+            else:
+              i = i +1
+      
+          return jsonify(lista)
+        
+      else:
+        
+        messi = f""" SELECT nombre FROM Recetas WHERE id_receta == {rese[0][0]};"""
+        mesi = conn.execute(messi)
+        mesi = mesi.fetchone()
+        conn.close()
+        if messi in yaExisten:
+          print("ya existe")
+          return True
+          
     else:
       conn = sqlite3.connect('dataBase.db')
       cur = f"""SELECT id_ingrediente FROM Ingredientes  WHERE nombre == '{busqueda}';"""
                     
       resultado = conn.execute(cur)
       dato = resultado.fetchone()
-      print(dato[0])
   
       resu = f""" SELECT Lista_ingredientes.id_receta FROM Lista_ingredientes INNER JOIN Ingredientes ON Lista_ingredientes.id_ingrediente = Ingredientes.id_ingrediente WHERE Ingredientes.id_ingrediente = {dato[0]};"""
       
       rese = conn.execute(resu)
       rese = rese.fetchall()
-      print(rese)
       lista = []
       i=0
+      
       if(len(rese) >= 2):
           for i in range(len(rese)):
-            print("rese[i]: ", rese[i][0])
             messi = f""" SELECT nombre FROM Recetas WHERE id_receta == {rese[i][0]};"""
             mesi = conn.execute(messi)
             mesi = mesi.fetchone()
             lista.append(mesi)
-            print(mesi)
-            print("la lista es: ", lista)
             i = i +1
-          
-          
-          print("la lista es: ", lista)
           conn.close()
           return jsonify(lista) 
         
       else:
-        print(rese[0][0])
+        
         messi = f""" SELECT nombre FROM Recetas WHERE id_receta == {rese[0][0]};"""
         mesi = conn.execute(messi)
         mesi = mesi.fetchone()
-        print(mesi)
-  
         conn.close()
         return jsonify(mesi) 
+
+
+
+
 
 @app.route('/login')
 def login():
@@ -164,7 +214,7 @@ def visualizarRecetas():
 def checkearSiExiste(unNombre):  # es para los ingedientes
     conn = sqlite3.connect('dataBase.db')
     cur = conn.cursor()
-    cur.execute(f"""SELECT nombre FROM Jugadores WHERE nombre = '{unNombre}';""")
+    cur.execute(f"""SELECT nombre FROM Ingredientes WHERE nombre = '{unNombre}';""")
     resu = cur.fetchall()
     conn.commit()
     conn.close()
@@ -185,6 +235,48 @@ def nIngediente():
       conn.close()
       print('ejecutado, ', nombre)
 
+
+@app.route('/mostrarReceta', methods = ['GET', 'POST'])
+def mostrarRecetas():
+  if (request.method == "POST"):
+    nombre = request.form['nombre']
+    nombre = nombre.lower()
+    conn = sqlite3.connect('dataBase.db')
+    print(nombre)
+    q = f"""SELECT id_receta FROM Recetas WHERE nombre LIKE '{nombre}'; """
+    q = conn.execute(q)
+    id = q.fetchone()
+    print(id)
+    resu = f"""SELECT * FROM Recetas WHERE id_receta LIKE '{id[0]}'; """
+    resu = conn.execute(resu)
+    data = resu.fetchall()
+    print(data)
+    conn.close()
+    return jsonify(data)
+
+def checkearSiExiste(id):  # es para las recetas
+    conn = sqlite3.connect('dataBase.db')
+    cur = conn.cursor()
+    cur.execute(f"""SELECT nombre FROM Recetas WHERE Recetas.id = '{id}';""")
+    resu = cur.fetchall()
+    conn.commit()
+    conn.close()
+    if resu != []:
+      return True
+
+@app.route('/eliminarReceta', methods = ['GET'])
+def eliminarReceta(id):
+  if (checkearSiExiste(id) == True):
+    conn = sqlite3.connect('dataBase.db') 
+    q = f"""DELETE FROM Recetas WHERE Recetas.id = {id}; """
+    conn.execute(q)
+    conn.commit()
+    conn.close()
+  else: 
+    print('el ID ', id, ' no existe')
+    
+
+    
 # @app.route('/buscarReceta', methods = ['GET', 'POST'])      # busca el nombre
 # def buscarReceta():    
 #   conn = sqlite3.connect('dataBase')

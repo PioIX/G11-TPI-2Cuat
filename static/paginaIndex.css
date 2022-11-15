@@ -65,12 +65,32 @@ body{
   font-size:30px;
   float:left;
   margin:10px;
-
-  width:70%;
+  cursor:pointer;
+  width:95%;
 }
 
+#nombre {
+  font-family: 'Fredoka One';
+  color:white;
+  margin-left:3%;
+}
 
+#descripcion{
+  color:white;
+  font-family: 'Arial';
+  margin-left:3%;
+  margin-top:3%;
+  text-align:justify;
+  
+}
 
+#origen{
+  color:white;
+  font-family: 'Fredoka One';
+  margin-left:3%;
+  margin-top:10%
+
+}
 
 
 

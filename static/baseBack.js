@@ -10,7 +10,6 @@ function Busqueda(){
       if(tags.length >= 2){
       document.getElementById("barra").value = "";
         x = id
-        console.log(id)
       document.getElementById("tags").innerHTML += `
      <button type='button' value='${tags}' class="but" id=${id} onclick='borrarTag("${x}" )'>${tags} ✖️</button>
     `
@@ -33,24 +32,24 @@ function Busqueda(){
 function borrarTag(id){
   document.getElementById(id).remove()
   let vector = document.getElementsByName(id)
+  
   while (vector.length > 0) {
     vector[0].remove()
+    conteo = conteo - 1
   }
   
 }
 
 function cargarOptions(){
   opciones = []
-  document.getElementById("barra").value = ""
   $.ajax({
     url:"/options",
     type:"GET",
     success:function(response){
       datos =  response;
-      console.log(datos)
       for(i=0;i<=datos.length ;i++){
         document.getElementById("barra").innerHTML += `
-        <option value="${datos[i][0]}">${datos[i][0]}</option>
+        <option value="${datos[i]}">${datos[i]}</option>
         `
       }
       
